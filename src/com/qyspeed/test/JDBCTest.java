@@ -6,7 +6,7 @@ import java.sql.*;
 public class JDBCTest {
     public Connection conn;
 	public Statement stmt;
-	static final String DBURL="jdbc:mysql://120.16.145.98/dengjiajun";
+	static final String DBURL="jdbc:mysql://120.76.145.98:3306/dengjiajun";
 	static final String USER="root";
     static final String PASSWORD="jiajun";
 	public void JDBCStart() throws SQLException
