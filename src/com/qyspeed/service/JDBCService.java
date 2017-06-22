@@ -1,9 +1,13 @@
-package com.qyspeed.test;
+package com.qyspeed.service;
 import java.sql.*;
 /*
- * JDBC编程
+ * Class.forname()
+ * DriverManage
+ * Statement/PreparedStatement
+ * Result
+ * executeQuery/executeUpdate
  */
-public class JDBCTest {
+public class JDBCService {
     public Connection conn;
 	public Statement stmt;
 	static final String DBURL="jdbc:mysql://120.76.145.98:3306/dengjiajun";
@@ -17,20 +21,21 @@ public class JDBCTest {
 		Class.forName("com.mysql.jdbc.Driver");
 		//打开链接，请求连接数据库
 	    System.out.println("正在连接数据库...");
-	     conn=DriverManager.getConnection(DBURL,USER,PASSWORD);
+	    conn=DriverManager.getConnection(DBURL,USER,PASSWORD);//Connection对象 =驱动管理.获取连接(地址,用户,密码)
 	    
-	    //执行查询
+	    //创建Statement 对象来执行 sql语句
+	    //executeQuery()-查询
+	    //executeUpdate()-增（insert），删(delete)，改(update)
 	    System.out.println("实例化Statement执行sql语句");
-	     stmt=conn.createStatement();
+	    stmt=conn.createStatement();
 	    String sql;
-	    sql="select teacherNumber from teacher";
-	    ResultSet rs=stmt.executeQuery(sql);
-	    
+	    sql="select username from admin";
+	    ResultSet rs=stmt.executeQuery(sql);//接受 查询结果的返回集
 	    //处理返回结果集
 	    while(rs.next())
 	    {
-	    	String test1=rs.getString("teacherNumber");
-	    	System.out.println("老师id"+test1);
+	    	String test1=rs.getString("username");
+	    	System.out.println("用户名："+test1);
 	    	
 	    }
 	    //结束关闭JDBC连接

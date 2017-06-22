@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.qyspeed.domain.Admin;
-import com.qyspeed.test.JDBCTest;
+import com.qyspeed.service.JDBCService;
 import com.qyspeed.test.TestGrade;
 public class Main {
 
@@ -22,7 +22,7 @@ public class Main {
 		point.Grade(90.6);
 		*/
 	
-	 JDBCTest jdbctest= new JDBCTest();
+	 JDBCService jdbctest= new JDBCService();
 	 jdbctest.JDBCStart();
 	}
 
